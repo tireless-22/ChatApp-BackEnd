@@ -18,6 +18,8 @@ import com.knk.CommonFunctions;
  
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 
 
@@ -53,24 +55,21 @@ public class messagesOneToOne extends HttpServlet{
 												st.setString(4, number);
 												
 												ResultSet rs = st.executeQuery();
-												
+												JsonArray jsonArray = new JsonArray();
 
-											
-												
-     
 												while (rs.next()) {
-												
+												JsonObject row=new JsonObject();
 
-													System.out.println(rs.getString(1));
-													System.out.println(rs.getString(2));
-													System.out.println(rs.getString(3));
-													System.out.println(rs.getString(4));
-
+												row.addProperty("msg_id", rs.getString(1));
+												row.addProperty("data", rs.getString(2));
+												row.addProperty("sender_id", rs.getString(3));
+												row.addProperty("receiver_id", rs.getString(4));
+												jsonArray.add(row);
 												}
 												
 													
  
-														res.getWriter().println("hello");
+														res.getWriter().println(jsonArray);
 												 
             } catch (Exception e) {
                 res.getWriter().println(e);

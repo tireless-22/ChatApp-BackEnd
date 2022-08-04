@@ -66,15 +66,7 @@ public class recentMessageusers extends HttpServlet{
  
 													String JSONObject = gson.toJson(recentMsgs);
 													res.getWriter().println(JSONObject);
-												 
-
-
-
-
-
-
-
-
+												
             } catch (Exception e) {
                 res.getWriter().println(e);
 									
