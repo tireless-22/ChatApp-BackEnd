@@ -1,1 +1,0 @@
-0:0:0:0:0:0:0:1 - - [03/Aug/2022:17:30:04 +0530] "GET /knk/login?number=738554444&password=1243 HTTP/1.1" 200 6 http-bio-9090-exec-2 604

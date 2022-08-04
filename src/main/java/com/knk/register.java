@@ -42,7 +42,7 @@ public class register extends HttpServlet{
 
             if (CommonFunctions.user_existed_or_not(number)) {
 													// if the user exist
-																 res.getWriter().println(0);
+				res.getWriter().println(0);
                 
 
             } else {
@@ -55,17 +55,17 @@ public class register extends HttpServlet{
                 st1.setString(1, number);
                 st1.setString(2, password);
 
-																int count = st1.executeUpdate();
-																// ArrayList<String> res=new ArrayList<String>();
-																
+                int count = st1.executeUpdate();
+                // ArrayList<String> res=new ArrayList<String>();
+                
 
-																// Gson gson = new Gson();
-															
-																
+                // Gson gson = new Gson();
+            
+                
 
-																if (count == 0) {
+                if (count == 0) {
 
-																			res.getWriter().println(0);
+                    res.getWriter().println(0);
                     return ;
                 } else {
                    res.getWriter().println(1);
@@ -73,8 +73,8 @@ public class register extends HttpServlet{
 
             }
 
-											} catch (Exception e) {
-												res.getWriter().println(e);
+            } catch (Exception e) {
+                res.getWriter().println(e);
 									
             // System.out.println(e);
         }

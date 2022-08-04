@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 
 class CommonFunctions {
     public static boolean user_existed_or_not(String temp_ph) {
-          try {
+        try {
             //********************************************* */
             // jdbc connections
             String url = "jdbc:mysql://localhost:3306/chatapp";
@@ -20,42 +20,55 @@ class CommonFunctions {
 
             //********************************************** */
 
-            
-            
+            String query1 = "select * from  user where ph_no=?";
+            PreparedStatement st1 = con.prepareStatement(query1);
+            // int n = ph_no;
+            st1.setString(1, temp_ph);
 
-                String query1 = "select * from  user where ph_no=?";
-                PreparedStatement st1 = con.prepareStatement(query1);
-                // int n = ph_no;
-                st1.setString(1,temp_ph);
-                
+            ResultSet rs = st1.executeQuery();
 
-                ResultSet rs = st1.executeQuery();
-
-                if (rs.next()) {
-                    return true;
-                }
-                else {
-                    return false;
-                }
-
-            
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
 
         } catch (Exception e) {
             System.out.println(e);
         }
 
-       
         return false;
-         
 
+    }
+    
 
-
-
-
-
-
-        
-
+     public static int stringCompare(String str1, String str2)
+    {
+  
+        int l1 = str1.length();
+        int l2 = str2.length();
+        int lmin = Math.min(l1, l2);
+  
+        for (int i = 0; i < lmin; i++) {
+            int str1_ch = (int)str1.charAt(i);
+            int str2_ch = (int)str2.charAt(i);
+  
+            if (str1_ch != str2_ch) {
+                return str1_ch - str2_ch;
+            }
+        }
+  
+        // Edge case for strings like
+        // String 1="Geeks" and String 2="Geeksforgeeks"
+        if (l1 != l2) {
+            return l1 - l2;
+        }
+  
+        // If none of the above conditions is true,
+        // it implies both the strings are equal
+        else {
+            return 0;
+        }
     }
 
     public static boolean group_name_exist_or_not(String grpName) {

@@ -1,4 +1,5 @@
 package com.knk;
+import java.io.Console;
 import java.io.IOException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ import java.util.Vector;
 
 import com.google.gson.Gson;
 import com.knk.CommonFunctions;
+
 
 
 
@@ -36,7 +38,7 @@ public class login extends HttpServlet{
             Connection con = DriverManager.getConnection(url, mySqlUsername, mySqlPassword);
 
 												//********************************************** */
-												String query = "SELECT * from user where(ph_no=?) ;";
+		    String query = "SELECT * from user where(ph_no=?) ;";
             PreparedStatement st = con.prepareStatement(query);
             // System.out.println("check1");
 
@@ -52,12 +54,15 @@ public class login extends HttpServlet{
                 // if matched we will return 1 and tell the user that "successfull" and we will also put the user id in global state
                 // String ph_no = rs.getString(2);
                 String lgPassword = rs.getString(3);
-                // System.out.println(lgPassword);
-                // System.out.println(password);
-																if (Integer.parseInt(lgPassword) == Integer.parseInt(password)) {
+                System.out.println(lgPassword);
+                System.out.println(password);
+                if (CommonFunctions.stringCompare(password, lgPassword) == 0) {
+                    
 
 																	
                     res.getWriter().println(number);
+                    // System.out.println("hello");
+                    // res.getWriter().pri("HellO");
                 } else {
                     res.getWriter().println(0);
                 }
@@ -69,8 +74,8 @@ public class login extends HttpServlet{
             
             
 
-											} catch (Exception e) {
-												res.getWriter().println(e);
+            } catch (Exception e) {
+                res.getWriter().println(e);
 									
             // System.out.println(e);
         }
