@@ -1,9 +1,14 @@
 com\knk\block.class
 com\knk\blockOrNot.class
 com\knk\recentMessageusers.class
-com\knk\messagesOneToOne.class
-com\knk\CommonFunctions.class
+com\knk\AddUser.class
+com\knk\createAGroup.class
 com\knk\login.class
-com\knk\sendMessage.class
 com\knk\unblock.class
 com\knk\register.class
+com\knk\deleteUserFromGroup.class
+com\knk\deleteAGroup.class
+com\knk\messagesOneToOne.class
+com\knk\CommonFunctions.class
+com\knk\changeAdmin.class
+com\knk\sendMessage.class

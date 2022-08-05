@@ -42,6 +42,99 @@ class CommonFunctions {
     }
     
 
+
+
+        public static String add_users_to_groups(String temp_usr, String temp_grp) {
+        try {
+            //********************************************* */
+            // jdbc connections
+            String url = "jdbc:mysql://localhost:3306/chatapp";
+            String mySqlUsername = "sqluser";
+            String mySqlPassword = "password";
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            Connection con = DriverManager.getConnection(url, mySqlUsername, mySqlPassword);
+
+            //********************************************** */
+
+            String query1 = "insert into usergrp(user_id,group_name) values(?,?)";
+            PreparedStatement st1 = con.prepareStatement(query1);
+            // int n = ph_no;
+            st1.setString(1, temp_usr);
+            st1.setString(2, temp_grp);
+
+            int count = st1.executeUpdate();
+
+            if (count == 0) {
+                return "Occured problem while registering the user";
+            } else {
+                return "User added to group";
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return "some thing";
+    }
+    
+
+
+    public static boolean add_user_to_group(String number,String groupName) {
+       try {
+            //********************************************* */
+            // jdbc connections
+            String url = "jdbc:mysql://localhost:3306/chatapp";
+            String mySqlUsername = "sqluser";
+            String mySqlPassword = "password";
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            Connection con = DriverManager.getConnection(url, mySqlUsername, mySqlPassword);
+
+            //********************************************** */
+
+
+
+                    // add him to the group
+                String query1 = "insert into usergrp(user_id,group_name) values(?,?)";
+                PreparedStatement st1 = con.prepareStatement(query1);
+                // int n = ph_no;
+                st1.setString(1, number);
+                st1.setString(2, groupName);
+
+                int count = st1.executeUpdate();
+
+                if (count == 0) {
+                    System.out.println("something went wrong");
+                    //    res.getWriter().println("Something went wrong");
+                   } else {
+                    System.out.println("user added to group");
+                    //    res.getWriter().println("User added to group");
+               
+                }
+
+
+
+
+
+            } catch (Exception e) {
+                // res.getWriter().println(e);
+                System.out.println(e);
+									
+            // System.out.println(e);
+        }
+
+
+        return false;
+
+    }
+
+
+
+
+
      public static int stringCompare(String str1, String str2)
     {
   

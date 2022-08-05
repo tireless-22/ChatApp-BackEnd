@@ -62,6 +62,26 @@
     <servlet-class>com.knk.blockOrNot</servlet-class>
   </servlet>
 
+     <servlet>
+    <servlet-name>createAGroup</servlet-name>
+    <servlet-class>com.knk.createAGroup</servlet-class>
+  </servlet>
+
+   <servlet>
+    <servlet-name>AddUser</servlet-name>
+    <servlet-class>com.knk.AddUser</servlet-class>
+  </servlet>
+
+
+  <servlet>
+    <servlet-name>deleteAGroup</servlet-name>
+    <servlet-class>com.knk.deleteAGroup</servlet-class>
+  </servlet>
+
+    <servlet>
+    <servlet-name>deleteUserFromGroup</servlet-name>
+    <servlet-class>com.knk.deleteUserFromGroup</servlet-class>
+  </servlet>
  
 
 
@@ -110,6 +130,29 @@
     <servlet-mapping>
     <servlet-name>blockOrNot</servlet-name>
     <url-pattern>/blockOrNot</url-pattern>
+  </servlet-mapping>
+
+
+    <servlet-mapping>
+    <servlet-name>createAGroup</servlet-name>
+    <url-pattern>/createAGroup</url-pattern>
+  </servlet-mapping>
+
+
+     <servlet-mapping>
+    <servlet-name>AddUser</servlet-name>
+    <url-pattern>/addUser</url-pattern>
+  </servlet-mapping>
+
+   <servlet-mapping>
+    <servlet-name>deleteAGroup</servlet-name>
+    <url-pattern>/deleteAGroup</url-pattern>
+  </servlet-mapping>
+
+
+   <servlet-mapping>
+    <servlet-name>deleteUserFromGroup</servlet-name>
+    <url-pattern>/deleteUserFromGroup</url-pattern>
   </servlet-mapping>
 
 
