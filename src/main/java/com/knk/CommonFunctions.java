@@ -86,39 +86,85 @@ class CommonFunctions {
 
             //********************************************** */
 
-            
-            
+            String query1 = "select * from  grps where grp_name=?";
+            PreparedStatement st1 = con.prepareStatement(query1);
+            // int n = ph_no;
+            st1.setString(1, grpName);
 
-                String query1 = "select * from  grps where grp_name=?";
-                PreparedStatement st1 = con.prepareStatement(query1);
-                // int n = ph_no;
-                st1.setString(1,grpName);
-                
+            ResultSet rs = st1.executeQuery();
 
-                ResultSet rs = st1.executeQuery();
-
-                if (rs.next()) {
-                    return true;
-                }
-                else {
-                    return false;
-                }
-
-            
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
 
         } catch (Exception e) {
             System.out.println(e);
         }
 
-       
         return false;
-         
 
-
-
-
-        
     }
+
+
+     public static int blockOrNot(String temp_num,String number) {
+        // we will check if he blocked current user 
+
+        try {
+            //********************************************* */
+            // jdbc connections
+            String url = "jdbc:mysql://localhost:3306/chatapp";
+            String mySqlUsername = "sqluser";
+            String mySqlPassword = "password";
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            Connection con = DriverManager.getConnection(url, mySqlUsername, mySqlPassword);
+
+            //********************************************** */
+
+            // user_main blocked user or not 
+
+            String query = "SELECT * from blockseen where(user_main=? and user=?) ;";
+            PreparedStatement st = con.prepareStatement(query);
+
+            st.setString(1, number);
+            st.setString(2, temp_num);
+            ResultSet rs = st.executeQuery();
+            // rs.next();
+
+            if (rs.next()) {
+                if (rs.getInt(3) == 1) {
+                    return 1;
+                }
+
+            }
+
+            String query1 = "SELECT * from blockseen where(user_main=? and user=?) ;";
+            PreparedStatement st1 = con.prepareStatement(query1);
+
+            st1.setString(1, temp_num);
+            st1.setString(2, number);
+
+            ResultSet rs1 = st.executeQuery();
+
+            if (rs1.next()) {
+                if (rs1.getInt(3) == 1) {
+                    return 2;
+                }
+
+            }
+            return 3;
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return 0;
+    }
+
+    
 
     public static boolean user_belongs_to_group_or_not(String temp_ph, String grp_name) {
 

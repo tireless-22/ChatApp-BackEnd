@@ -1,5 +1,8 @@
-com\knk\messagesOneToOne.class
+com\knk\block.class
 com\knk\recentMessageusers.class
+com\knk\messagesOneToOne.class
 com\knk\CommonFunctions.class
 com\knk\login.class
+com\knk\sendMessage.class
+com\knk\unblock.class
 com\knk\register.class
