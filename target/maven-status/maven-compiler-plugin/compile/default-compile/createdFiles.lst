@@ -1,4 +1,5 @@
 com\knk\block.class
+com\knk\blockOrNot.class
 com\knk\recentMessageusers.class
 com\knk\messagesOneToOne.class
 com\knk\CommonFunctions.class

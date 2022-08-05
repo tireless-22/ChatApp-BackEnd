@@ -57,6 +57,11 @@
     <servlet-class>com.knk.unblock</servlet-class>
   </servlet>
 
+   <servlet>
+    <servlet-name>blockOrNot</servlet-name>
+    <servlet-class>com.knk.blockOrNot</servlet-class>
+  </servlet>
+
  
 
 
@@ -99,6 +104,12 @@
     <servlet-mapping>
     <servlet-name>unblock</servlet-name>
     <url-pattern>/unblock</url-pattern>
+  </servlet-mapping>
+
+
+    <servlet-mapping>
+    <servlet-name>blockOrNot</servlet-name>
+    <url-pattern>/blockOrNot</url-pattern>
   </servlet-mapping>
 
 
