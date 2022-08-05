@@ -82,6 +82,17 @@
     <servlet-name>deleteUserFromGroup</servlet-name>
     <servlet-class>com.knk.deleteUserFromGroup</servlet-class>
   </servlet>
+
+   <servlet>
+    <servlet-name>Hashing</servlet-name>
+    <servlet-class>com.knk.Hashing</servlet-class>
+  </servlet>
+
+
+  <servlet>
+    <servlet-name>HashLogin</servlet-name>
+    <servlet-class>com.knk.HashLogin</servlet-class>
+  </servlet>
  
 
 
@@ -153,6 +164,17 @@
    <servlet-mapping>
     <servlet-name>deleteUserFromGroup</servlet-name>
     <url-pattern>/deleteUserFromGroup</url-pattern>
+  </servlet-mapping>
+
+     <servlet-mapping>
+    <servlet-name>Hashing</servlet-name>
+    <url-pattern>/Hashing</url-pattern>
+  </servlet-mapping>
+
+
+    <servlet-mapping>
+    <servlet-name>HashLogin</servlet-name>
+    <url-pattern>/HashLogin</url-pattern>
   </servlet-mapping>
 
 
