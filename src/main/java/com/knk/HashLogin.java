@@ -17,13 +17,31 @@ import java.util.Vector;
 import com.google.gson.Gson;
 import com.knk.CommonFunctions;
 
+import io.jsonwebtoken.Jwts;
+
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
+import java.util.UUID;
+import io.jsonwebtoken.SignatureAlgorithm;
+import javax.crypto.spec.SecretKeySpec;
+import java.security.Key;
+import java.util.Base64;
+
+
+
 
 
 
 public class HashLogin extends HttpServlet{
 	public void service(HttpServletRequest req,HttpServletResponse res) throws IOException {
 		String number=req.getParameter("number");
-		String password = req.getParameter("password");
+        String password = req.getParameter("password");
+        String secret = "asdfSFS34wfsdfsdfSDSD32dfsddDDerQSNCK34SOWEK5354fdgdf4";
+
+        Key hmacKey = new SecretKeySpec(Base64.getDecoder().decode(secret), 
+                            SignatureAlgorithm.HS256.getJcaName());
+
 
 
 
@@ -46,26 +64,27 @@ public class HashLogin extends HttpServlet{
 
             st.setString(1, number);
             ResultSet rs = st.executeQuery();
-            // rs.next();
-            // System.out.println("check1");
+        
 
             if (rs.next()) {
-                // existed
-                // so we will check if the password is matched or not
-                // if  not matched, then we will return 0 and show the user " please check you credentials"
-                // if matched we will return 1 and tell the user that "successfull" and we will also put the user id in global state
-                // String ph_no = rs.getString(2);
-																String lgPassword = rs.getString(3);
-																String sha3Hex = new DigestUtils("SHA3-256").digestAsHex(password);
+             
+                String lgPassword = rs.getString(3);
+                String sha3Hex = new DigestUtils("SHA3-256").digestAsHex(password);
                 System.out.println(lgPassword);
                 System.out.println(password);
+
                 if (CommonFunctions.stringCompare(sha3Hex, lgPassword) == 0) {
+                    String jwtToken = Jwts.builder()
+                    .claim("number", number)
+                    // .setId(UUID.randomUUID().toString())
+                    .signWith(hmacKey)
+                    .compact();
+                    
                     
 
 																	
-                    res.getWriter().println(number);
-                    // System.out.println("hello");
-                    // res.getWriter().pri("HellO");
+                    res.getWriter().println(jwtToken);
+                
                 } else {
                     res.getWriter().println(0);
                 }

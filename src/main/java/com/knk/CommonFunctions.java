@@ -4,8 +4,76 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.crypto.spec.SecretKeySpec;
+import javax.xml.bind.DatatypeConverter;
+
+// import org.apache.commons.codec.binary.Base64;
+
+import java.security.Key;
+import io.jsonwebtoken.*;
+
+import java.util.Base64;
+import java.util.Date;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
+import io.jsonwebtoken.Jwts;
+  
 
 class CommonFunctions {
+
+
+    public static Jws<Claims> parseJwt(String jwtString) {
+    String secret = "asdfSFS34wfsdfsdfSDSD32dfsddDDerQSNCK34SOWEK5354fdgdf4";
+    Key hmacKey = new SecretKeySpec(Base64.getDecoder().decode(secret), 
+                                    SignatureAlgorithm.HS256.getJcaName());
+
+    Jws<Claims> jwt = Jwts.parserBuilder()
+            .setSigningKey(hmacKey)
+            .build()
+            .parseClaimsJws(jwtString);
+
+    return jwt;
+}
+
+
+ 
+//Sample method to construct a JWT
+private String createJWT(String id, String issuer, String subject, long ttlMillis) {
+
+    //The JWT signature algorithm we will be using to sign the token
+    SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
+
+    long nowMillis = System.currentTimeMillis();
+    Date now = new Date(nowMillis);
+
+    //We will sign our JWT with our ApiKey secret
+    byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary("secretet key");
+    Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
+
+    //Let's set the JWT Claims
+    JwtBuilder builder = Jwts.builder().setId(id)
+            .setIssuedAt(now)
+            .setSubject(subject)
+            .setIssuer(issuer);
+            // .signWith(signatureAlgorithm, signingKey);
+
+    //if it has been specified, let's add the expiration
+    if (ttlMillis >= 0) {
+        long expMillis = nowMillis + ttlMillis;
+        Date exp = new Date(expMillis);
+        builder.setExpiration(exp);
+    }
+
+    //Builds the JWT and serializes it to a compact, URL-safe string
+    return builder.compact();
+}
+
+
+
+
+
+
+
     public static boolean user_existed_or_not(String temp_ph) {
         try {
             //********************************************* */

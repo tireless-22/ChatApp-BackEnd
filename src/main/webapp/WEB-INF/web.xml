@@ -93,6 +93,11 @@
     <servlet-name>HashLogin</servlet-name>
     <servlet-class>com.knk.HashLogin</servlet-class>
   </servlet>
+
+  <servlet>
+    <servlet-name>NumberFromJwt</servlet-name>
+    <servlet-class>com.knk.NumberFromJwt</servlet-class>
+  </servlet>
  
 
 
@@ -175,6 +180,11 @@
     <servlet-mapping>
     <servlet-name>HashLogin</servlet-name>
     <url-pattern>/HashLogin</url-pattern>
+  </servlet-mapping>
+
+    <servlet-mapping>
+    <servlet-name>NumberFromJwt</servlet-name>
+    <url-pattern>/NumberFromJwt</url-pattern>
   </servlet-mapping>
 
 
