@@ -115,11 +115,16 @@
     <servlet-class>com.knk.sendGroupMessage</servlet-class>
   </servlet>
 
+  <servlet>
+    <servlet-name>startConversation</servlet-name>
+    <servlet-class>com.knk.startConversation</servlet-class>
+  </servlet>
 
 
 
 
-  
+
+
 
   
   <servlet-mapping>
@@ -218,6 +223,12 @@
    <servlet-mapping>
     <servlet-name>sendGroupMessage</servlet-name>
     <url-pattern>/sendGroupMessage</url-pattern>
+  </servlet-mapping>
+
+
+   <servlet-mapping>
+    <servlet-name>startConversation</servlet-name>
+    <url-pattern>/startConversation</url-pattern>
   </servlet-mapping>
 
 

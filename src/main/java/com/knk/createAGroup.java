@@ -42,7 +42,7 @@ public class createAGroup extends HttpServlet{
 
             if (CommonFunctions.group_name_exist_or_not(groupName)) {
 													// if the user exist
-				res.getWriter().println("Group name already exists");
+				res.getWriter().println(0);
                 
 
             } else {
@@ -60,10 +60,10 @@ public class createAGroup extends HttpServlet{
  
                 if (count == 0) {
 
-                    res.getWriter().println("some problem");
+                    res.getWriter().println(0);
                     return ;
                 } else {
-                   res.getWriter().println("Group created");
+                   res.getWriter().println(1);
                 }
 
             }

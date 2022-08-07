@@ -3,6 +3,7 @@ com\knk\block.class
 com\knk\blockOrNot.class
 com\knk\recentMessageusers.class
 com\knk\AddUser.class
+com\knk\startConversation.class
 com\knk\Claims.class
 com\knk\HashLogin.class
 com\knk\messageInGroups.class
