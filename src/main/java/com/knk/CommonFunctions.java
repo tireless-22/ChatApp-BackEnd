@@ -175,10 +175,10 @@ private String createJWT(String id, String issuer, String subject, long ttlMilli
                 int count = st1.executeUpdate();
 
                 if (count == 0) {
-                    System.out.println("something went wrong");
+                    // System.out.println("something went wrong");
                     //    res.getWriter().println("Something went wrong");
                    } else {
-                    System.out.println("user added to group");
+                    // System.out.println("user added to group");
                     //    res.getWriter().println("User added to group");
                
                 }
@@ -350,7 +350,7 @@ private String createJWT(String id, String issuer, String subject, long ttlMilli
                 // int n = ph_no;
                 st1.setString(1, temp_ph);
                 st1.setString(2, grp_name);
-                System.out.println(temp_ph + "   " + grp_name);
+                // System.out.println(temp_ph + "   " + grp_name);
                 
                  
                 

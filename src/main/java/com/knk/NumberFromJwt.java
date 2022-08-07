@@ -37,11 +37,11 @@ public class NumberFromJwt extends HttpServlet{
 		// System.out.println(jwt);
 				String jwt = req.getHeader("number");
 		// System.out.println(jwt);
-		System.out.println(CommonFunctions.parseJwt(jwt));
+		// System.out.println(CommonFunctions.parseJwt(jwt));
 		Jws<Claims> data = CommonFunctions.parseJwt(jwt);
 		// System.out.println(data.getClass());
 		// const jsonData=data.getBody();
-		System.out.println(data.getBody());
+		// System.out.println(data.getBody());
 
 		
 

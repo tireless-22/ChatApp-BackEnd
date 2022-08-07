@@ -70,8 +70,8 @@ public class HashLogin extends HttpServlet{
              
                 String lgPassword = rs.getString(3);
                 String sha3Hex = new DigestUtils("SHA3-256").digestAsHex(password);
-                System.out.println(lgPassword);
-                System.out.println(password);
+                // System.out.println(lgPassword);
+                // System.out.println(password);
 
                 if (CommonFunctions.stringCompare(sha3Hex, lgPassword) == 0) {
                     String jwtToken = Jwts.builder()
