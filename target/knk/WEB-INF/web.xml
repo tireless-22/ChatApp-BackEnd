@@ -100,6 +100,20 @@
   </servlet>
  
 
+   <servlet>
+    <servlet-name>recentGroups</servlet-name>
+    <servlet-class>com.knk.recentGroups</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>messageInGroups</servlet-name>
+    <servlet-class>com.knk.messageInGroups</servlet-class>
+  </servlet>
+
+   <servlet>
+    <servlet-name>sendGroupMessage</servlet-name>
+    <servlet-class>com.knk.sendGroupMessage</servlet-class>
+  </servlet>
 
 
 
@@ -186,6 +200,25 @@
     <servlet-name>NumberFromJwt</servlet-name>
     <url-pattern>/NumberFromJwt</url-pattern>
   </servlet-mapping>
+
+
+      <servlet-mapping>
+    <servlet-name>recentGroups</servlet-name>
+    <url-pattern>/recentGroups</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>messageInGroups</servlet-name>
+    <url-pattern>/messageInGroups</url-pattern>
+  </servlet-mapping>
+
+
+   <servlet-mapping>
+    <servlet-name>sendGroupMessage</servlet-name>
+    <url-pattern>/sendGroupMessage</url-pattern>
+  </servlet-mapping>
+
+
 
 
 

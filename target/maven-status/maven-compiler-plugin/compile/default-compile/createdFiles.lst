@@ -1,10 +1,13 @@
+com\knk\recentGroups.class
 com\knk\block.class
 com\knk\blockOrNot.class
 com\knk\recentMessageusers.class
 com\knk\AddUser.class
 com\knk\Claims.class
 com\knk\HashLogin.class
+com\knk\messageInGroups.class
 com\knk\createAGroup.class
+com\knk\sendGroupMessage.class
 com\knk\login.class
 com\knk\unblock.class
 com\knk\register.class
