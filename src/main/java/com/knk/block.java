@@ -87,16 +87,16 @@ public class block extends HttpServlet{
 
 																		int count = st1.executeUpdate();
 
-																	if (count == 0) {
-																			res.getWriter().println("Occured problem while blocking the user");
+																	// if (count == 0) {
+																	// 		res.getWriter().println("Occured problem while blocking the user");
 
 
-																						// return "Occured problem while blocking the user";
-																					} else {
-																						res.getWriter().println("User blocked");
+																	// 					// return "Occured problem while blocking the user";
+																	// 				} else {
+																	// 					res.getWriter().println("User blocked");
 																			
-																						// return "User blocked";
-																		}
+																	// 					// return "User blocked";
+																	// 	}
 
 														}
 
